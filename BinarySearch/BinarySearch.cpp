@@ -7,7 +7,8 @@ int binarysearch(vector<int> arr, int tar){
 
     while (st <= end)
     {
-        int mid = (st + end )/2;
+        // int mid = (st + end )/2; this can porduce the condition of overflow of int 
+        int mid = st + (end - st) /2; //this optimization potects the overflow of int
         if (arr[mid] == tar)
         {
             pos = mid;
