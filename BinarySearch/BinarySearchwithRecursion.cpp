@@ -19,7 +19,7 @@ return -1;
 int main() {
 
     vector<int> arr = {1,2,3,4,5,6,7,12,14,15,16,17};
-    cout<<binarySearch(arr ,  2 , 0 , arr.size())<<"\n";
+    cout<<binarySearch(arr ,  2 , 0 , arr.size()-1)<<"\n";
     
 return 0;
 }
