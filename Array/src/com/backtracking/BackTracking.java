@@ -9,7 +9,7 @@ public class BackTracking {
         }
         arr[i] = val;
         changeArr(arr , i+1 , val+1); //function call
-        arr[i] = arr[i] -2;//backing tracking
+        arr[i] = arr[i] -2;//back tracking
     }
     public static void printArr(int[] arr){
         for (int num : arr){
