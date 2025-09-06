@@ -114,9 +114,11 @@ public class LinkedList {
         }
         int val = tail.data;
         Node prev  = head;
+        //find the previous node
         for (int i = 0; i < size-2; i++) {
             prev = prev.next;
         }
+        //updating the tail
         prev.next = null;
         tail = prev;
         size--;
