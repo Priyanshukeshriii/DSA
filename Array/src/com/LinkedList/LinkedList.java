@@ -205,6 +205,18 @@ public class LinkedList {
         return val;
     }
 
+    //find the middle of a Linked List
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     // Print the Linked List
     public void printLinkedList(){
         //checking the Linked List is empty or not
@@ -243,5 +255,14 @@ public class LinkedList {
         ll.printLinkedList();
         System.out.println(ll.deleteNthfromEnd(1));
         ll.printLinkedList();
+        ll.addFirst(2);
+        ll.addFirst(4);
+        ll.addFirst(5);
+        ll.addFirst(6);
+        ll.printLinkedList();
+        Node mid = ll.findMid(head);
+        System.out.println(mid.data);
+        System.out.println(tail.data);
+
     }
 }
