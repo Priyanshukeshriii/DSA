@@ -8,7 +8,7 @@ public class PermutationUsingBackTracking {
             return;
         }
 
-        // recursion
+        // recursion - O(n*n!)
         for (int i = 0 ; i<str.length() ;i++){
             char currentch  = str.charAt(i);
             //"abcd" => "ab" +"d"
