@@ -141,6 +141,30 @@ public class LinkedList {
         return -1;
     }
 
+    //finding the index of the key using recursion
+    public int helper(Node head, int key){
+        //checking if the linked list is empty or not
+        if(head == null){
+            return -1;
+        }
+        //if key found return 0
+        if(head.data == key ){
+            return 0;
+        }
+
+        int index = helper(head.next , key);
+        //cheching if the upper level have found the key or not if not return -1
+        if(index == -1){
+            return -1;
+        }
+        //else return index + 1
+        return index+1;
+    }
+
+    public int recSearch(int key){
+        return helper(head,key);
+    }
+
     // Print the Linked List
     public void printLinkedList(){
         //checking the Linked List is empty or not
@@ -174,5 +198,6 @@ public class LinkedList {
         System.out.println(ll.removeLast());
         ll.printLinkedList();
         System.out.println(ll.itrSearch(67));
+        System.out.println(ll.recSearch(67));
     }
 }
