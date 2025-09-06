@@ -165,6 +165,27 @@ public class LinkedList {
         return helper(head,key);
     }
 
+    //reverse a linked list
+    public void reverse(){
+        if(head == null){
+            System.out.println("The Linked List is empty");
+            return;
+        }
+        if(size == 1){
+            return;
+        }
+        Node current = tail = head;
+        Node next ;
+        Node prev = null;
+        while(current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
+
     // Print the Linked List
     public void printLinkedList(){
         //checking the Linked List is empty or not
@@ -199,5 +220,7 @@ public class LinkedList {
         ll.printLinkedList();
         System.out.println(ll.itrSearch(67));
         System.out.println(ll.recSearch(67));
+        ll.reverse();
+        ll.printLinkedList();
     }
 }
