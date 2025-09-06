@@ -100,6 +100,29 @@ public class LinkedList {
         return val;
     }
 
+    //removing the last element
+    public int removeLast(){
+        if(size == 0){
+            System.out.println("The Linked List is empty");
+            return Integer.MIN_VALUE;
+        }
+        if(size == 1){
+            int val = tail.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        int val = tail.data;
+        Node prev  = head;
+        for (int i = 0; i < size-2; i++) {
+            prev = prev.next;
+        }
+        prev.next = null;
+        tail = prev;
+        size--;
+        return val;
+    }
+
     // Print the Linked List
     public void printLinkedList(){
         //checking the Linked List is empty or not
@@ -129,6 +152,8 @@ public class LinkedList {
         ll.printLinkedList();
         System.out.println(ll.size);
         ll.removeFirst();
+        ll.printLinkedList();
+        System.out.println(ll.removeLast());
         ll.printLinkedList();
     }
 }
