@@ -125,6 +125,22 @@ public class LinkedList {
         return val;
     }
 
+    // finding the index of key
+    //O(n)
+    public int itrSearch(int key){
+        int i =0;
+        Node temp = head;
+        while(temp != null){
+            //key found
+            if(key == temp.data){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
+
     // Print the Linked List
     public void printLinkedList(){
         //checking the Linked List is empty or not
@@ -157,5 +173,6 @@ public class LinkedList {
         ll.printLinkedList();
         System.out.println(ll.removeLast());
         ll.printLinkedList();
+        System.out.println(ll.itrSearch(67));
     }
 }
