@@ -188,20 +188,32 @@ public class LinkedList {
 
     public int deleteNthfromEnd(int n){
         if(n == size){
+            int val = head.data;
             head = head.next;
-            return Integer.MIN_VALUE ;
+            size--;
+            // if the linked list become empty
+            if(head == null){
+                tail= null;
+            }
+            return val;
         }
-        int  i =1;
+        int  i =0;
         Node temp1 = head;
         Node temp2 = head;
-        while (temp1 != null){
+        while (temp1.next != null){
             temp1 = temp1.next;
-            if(i>=5){
+            if(i>=n){
                 temp2 = temp2.next;
             }
+            i++;
         }
         int val = temp2.next.data;
         temp2.next = temp2.next.next;
+        //checking if the last element is removed
+        if(temp2.next == null){
+            tail = temp2;
+        }
+        size--;
         return val;
     }
 
@@ -255,6 +267,7 @@ public class LinkedList {
         ll.printLinkedList();
         System.out.println(ll.deleteNthfromEnd(1));
         ll.printLinkedList();
+        System.out.println("tail"+tail.data);
         ll.addFirst(2);
         ll.addFirst(4);
         ll.addFirst(5);
