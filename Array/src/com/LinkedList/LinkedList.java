@@ -12,11 +12,13 @@ public class LinkedList {
     }
     public static Node head;
     public static Node tail;
+    public static int size;
 
     //add first -> O(1)
     public void addFirst(int data){
         // create new node
         Node newNode = new Node(data);
+        size++;
 
         if(head == null){
             head = tail = newNode;
@@ -32,6 +34,7 @@ public class LinkedList {
 
     //add last -> O(1)
     public void addLast(int data){
+        size++;
         Node newNode = new Node(data);
         if(head == null){
             head = tail = newNode;
@@ -46,7 +49,12 @@ public class LinkedList {
     }
     //add in the middle
     public void add(int index , int data){
-        if(head == null && index ==0){
+        if(index == 0){
+            addFirst(data);
+            return;
+        }
+        size++;
+        if(head == null ){
             Node newNode = new Node(data);
             head = tail = newNode;
             return;
@@ -68,6 +76,28 @@ public class LinkedList {
         newNode.next = temp.next;
         temp.next= newNode;
 
+    }
+
+    //removing the value from first
+    public int removeFirst(){
+        //checking if linked list is empty
+        if(size == 0){
+            System.out.println("The linked list is empty");
+            return Integer.MIN_VALUE;
+        }
+        //checking the condition when the size of linked list is 1;
+        if(size ==1) {
+            int val = head.data;
+            head = tail = null;
+            size = 0;
+            return val;
+        }
+        //storing the value of head
+        int val = head.data;
+        //updating the reference of the head
+        head = head.next;
+         size--;
+        return val;
     }
 
     // Print the Linked List
@@ -94,6 +124,11 @@ public class LinkedList {
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addLast(3 );
+        ll.printLinkedList();
+        ll.add(2,67);
+        ll.printLinkedList();
+        System.out.println(ll.size);
+        ll.removeFirst();
         ll.printLinkedList();
     }
 }
